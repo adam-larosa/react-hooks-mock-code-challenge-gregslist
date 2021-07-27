@@ -1,7 +1,15 @@
 import React from "react";
 import Search from "./Search";
 
-function Header() {
+const SortActivator = ({ userWantsSort }) => {
+  return (
+    <div style={{margin: "10px"}}>
+      Sort by name? <input onChange={() => userWantsSort()}type="checkbox"/>
+    </div>
+  )
+}
+
+function Header({ sendUserInputToApp, userWantsSort }) {
   return (
     <header>
       <h1>
@@ -10,7 +18,8 @@ function Header() {
         </span>
         gregslist
       </h1>
-      <Search />
+      <SortActivator userWantsSort={userWantsSort} />
+      <Search sendUserInputToApp={sendUserInputToApp} />
     </header>
   );
 }
