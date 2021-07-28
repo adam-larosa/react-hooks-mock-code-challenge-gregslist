@@ -14,7 +14,7 @@ export default function NewListing({ addNewListingToState }) {
         const headers = {"Content-Type": "application/json"}
         const body = JSON.stringify({ description, image, location })
 
-        const dataToTransmit = {method, headers, body }
+        const dataToTransmit = { method, headers, body }
 
         fetch(url, dataToTransmit).then( jsonify ).then(newListing => {
             addNewListingToState(newListing)    //         ^
