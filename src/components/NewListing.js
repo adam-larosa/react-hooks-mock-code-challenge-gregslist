@@ -33,12 +33,14 @@ export default function NewListing({ addNewListingToState }) {
                 <label htmlFor="image">
                     Image url:
                 </label>
-                <input onChange={(e) => setImage(e.target.value)} id="image" name="image" />
+                <input onChange={(e) => setImage(e.target.value)} id="image" 
+                    name="image" />
 
                 <label htmlFor="location">
                     Location:
                 </label>
-                <input onChange={(e) => setLocation(e.target.value)} id="location" name="location" />
+                <input onChange={(e) => setLocation(e.target.value)} 
+                    id="location" name="location" />
                 
                 <input style={{margin: '10px'}} type="submit" />
             </form>
