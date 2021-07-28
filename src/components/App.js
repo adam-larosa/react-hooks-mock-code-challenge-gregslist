@@ -22,18 +22,17 @@ function App() {
 
   const deleteListing = id => {
     const whereToSendRequest = `${url}/${id}`
-    const metaDataAndStuff = {method: "DELETE"}
+    const whatToSend = {method: "DELETE"}
   
-    fetch(whereToSendRequest, metaDataAndStuff)
-    // begin ALL FRONT END STUFF
+    fetch(whereToSendRequest, whatToSend)
 
+    // begin ALL FRONT END STUFF
     const index = listings.findIndex(listing => listing.id === id )
     const newListings = [...listings]
     newListings.splice(index, 1)
-  
     setListings(newListings)
-
     // end FRONT
+
   }
 
   const getUserInputFromSearch = input => setSearch(input)
