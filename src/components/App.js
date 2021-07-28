@@ -17,25 +17,34 @@ function App() {
     fetch(url).then( jsonify ).then( putListingsInState )
   }, [])
 
+  const addNewListingToState = newListing => {
+/*     The fetch that requests a new listing be created on the back end is 
+       located in the NewListing component.  This function is sent there and
+       supplies the newListing parameter with a value                         */
+    setListings(prevListings => {
+      const newListings = [...prevListings]
+      newListings.unshift(newListing)
+      return newListings // changes state
+    })
+  }
 
   const deleteListing = id => {
     const whereToSendRequest = `${url}/${id}`
     const whatToSend = {method: "DELETE"}
   
-    fetch(whereToSendRequest, whatToSend)
+    fetch(whereToSendRequest, whatToSend) // back end stuff
 
     // begin ALL FRONT END STUFF
     const index = listings.findIndex(listing => listing.id === id )
     const newListings = [...listings]
     newListings.splice(index, 1)
-    setListings(newListings)
+    setListings(newListings) // changes state
     // end FRONT
-
   }
 
-  const getUserInputFromSearch = input => setSearch(input)
-  const filteredResults = () => {
-    if (search.length > 0) {
+  const getUserInputFromSearch = input => setSearch(input) // changes state
+  const filteredResults = () => { // looks at state
+    if (search.length > 0) { 
       return listings.filter(listing => 
         listing.description.toLowerCase().includes(search.toLowerCase()))
     } else {
@@ -43,9 +52,9 @@ function App() {
     }
   }
 
-  const userWantsSort = () => setSort(!sort)
-  const sortedListings = () => {
-    if (sort) {
+  const userWantsSort = () => setSort(!sort) // changes state
+  const sortedListings = () => { // looks at state
+    if (sort) { 
       // second version of return value below
       return [...filteredResults()].sort((a, b) => {
         if (a.location < b.location) {
@@ -58,14 +67,6 @@ function App() {
       }) //a.location < b.location ? -1 : a.location > b.location ? 1 : 0)
     }
     return filteredResults()
-  }
-
-  const addNewListingToState = newListing => {
-    setListings(prevListings => {
-      const newListings = [...prevListings]
-      newListings.unshift(newListing)
-      return newListings
-    })
   }
 
 
