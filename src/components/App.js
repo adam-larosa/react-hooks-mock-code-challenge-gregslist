@@ -55,7 +55,7 @@ function App() {
   const userWantsSort = () => setSort(!sort) // changes state
   const sortedListings = () => { // looks at state
     if (sort) { 
-      // second version of return value below
+      // second version of sort's callback logic below
       return [...filteredResults()].sort((a, b) => {
         if (a.location < b.location) {
           return -1
@@ -63,8 +63,8 @@ function App() {
           return 1
         } else {
           return 0
-        }
-      }) //a.location < b.location ? -1 : a.location > b.location ? 1 : 0)
+        }// a.location < b.location ? -1 : a.location > b.location ? 1 : 0)
+      }) 
     }
     return filteredResults()
   }
