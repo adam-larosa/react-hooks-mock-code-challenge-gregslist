@@ -1,15 +1,21 @@
 import React from "react";
 import Search from "./Search";
 
-const SortActivator = ({ userWantsSort }) => {
+const SortActivator = ({ sort:isSelected, userWantsSort }) => {
   return (
     <div style={{margin: "10px"}}>
-      Sort by name? <input onChange={() => userWantsSort()} type="checkbox"/>
+
+      <label htmlFor="sort-checkbox" >Sort by name?</label>
+      <input id="sort-checkbox" onChange={() => userWantsSort()} 
+        type="checkbox" checked={isSelected} style={{margin: "10px"}}/>
+
     </div>
   )
 }
 
-function Header({ sendUserInputToApp, userWantsSort }) {
+
+
+function Header({ sendUserInputToApp, sort, userWantsSort }) {
   return (
     <header>
       <h1>
@@ -18,7 +24,7 @@ function Header({ sendUserInputToApp, userWantsSort }) {
         </span>
         gregslist
       </h1>
-      <SortActivator userWantsSort={userWantsSort} />
+      <SortActivator sort={sort} userWantsSort={userWantsSort} />
       <Search sendUserInputToApp={sendUserInputToApp} />
     </header>
   );

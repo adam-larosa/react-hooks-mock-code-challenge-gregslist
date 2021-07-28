@@ -71,7 +71,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header userWantsSort={userWantsSort} 
+      <Header sort={sort} userWantsSort={userWantsSort} 
         sendUserInputToApp={getUserInputFromSearch} />
 
       <NewListing addNewListingToState={addNewListingToState} />
