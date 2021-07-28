@@ -23,26 +23,26 @@ export default function NewListing({ addNewListingToState }) {
                                                 // from our back end, i.e. the
     return (                                    // json-server
         <div style={{margin: "10px"}}>
-            <form onSubmit={makeNewListing} >
+            <form onSubmit={makeNewListing}>
                 <label htmlFor="description">
                     Description:
                 </label>
-                <input onChange={(e) => setDescription(e.target.value)} 
+                <input onChange={e => setDescription(e.target.value)} 
                     id="description" name="description"/>
 
                 <label htmlFor="image">
                     Image url:
                 </label>
-                <input onChange={(e) => setImage(e.target.value)} id="image" 
-                    name="image" />
+                <input onChange={e => setImage(e.target.value)} id="image" 
+                    name="image"/>
 
                 <label htmlFor="location">
                     Location:
                 </label>
-                <input onChange={(e) => setLocation(e.target.value)} 
-                    id="location" name="location" />
+                <input onChange={e => setLocation(e.target.value)} 
+                    id="location" name="location"/>
                 
-                <input style={{margin: '10px'}} type="submit" />
+                <input style={{margin: '10px'}} type="submit"/>
             </form>
         </div>
     )
