@@ -62,12 +62,9 @@ function App() {
   }
 
   const addNewListingToState = newListing => {
-    console.log(newListing)
     setListings(prevListings => {
       const newListings = [...prevListings]
-
       newListings.unshift(newListing)
-
       return newListings
     })
   }
@@ -75,9 +72,13 @@ function App() {
 
   return (
     <div className="app">
-      <Header userWantsSort={userWantsSort} sendUserInputToApp={getUserInputFromSearch} />
+      <Header userWantsSort={userWantsSort} 
+        sendUserInputToApp={getUserInputFromSearch} />
+
       <NewListing addNewListingToState={addNewListingToState} />
-      <ListingsContainer listings={sortedListings()} deleteListing={deleteListing} />
+      
+      <ListingsContainer listings={sortedListings()} 
+        deleteListing={deleteListing} />
     </div>
   );
 }
