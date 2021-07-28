@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import NewListing from './NewListing'
 import ListingsContainer from "./ListingsContainer";
-const jsonify = resp => resp.json()
-const url = "http://localhost:3000/listings"
+import { url, jsonify } from '../tools/fetchData'
 
 
 function App() {
+
   const [listings, setListings] = useState([])
   const [search, setSearch] = useState('')
   const [sort, setSort] = useState(false)
@@ -14,6 +14,7 @@ function App() {
   const putListingsInState = listingsData => setListings(listingsData)
 
   useEffect(() => {
+
     fetch(url).then( jsonify ).then( putListingsInState )
   }, [])
 
@@ -46,8 +47,16 @@ function App() {
   const userWantsSort = () => setSort(!sort)
   const sortedListings = () => {
     if (sort) {
-      return [...filteredResults()].sort((a, b) => 
-        a.location < b.location ? -1 : a.location > b.location ? 1 : 0)
+      // second version of return value below
+      return [...filteredResults()].sort((a, b) => {
+        if (a.location < b.location) {
+          return -1
+        } else if (a.location > b.location) {
+          return 1
+        } else {
+          return 0
+        }
+      }) //a.location < b.location ? -1 : a.location > b.location ? 1 : 0)
     }
     return filteredResults()
   }
