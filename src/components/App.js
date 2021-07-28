@@ -11,12 +11,10 @@ function App() {
   const [search, setSearch] = useState('')
   const [sort, setSort] = useState(false)
 
-  useEffect(() => {
-    fetch(url).then(jsonify).then(listingsData => {
-      
+  const putListingsInState = listingsData => setListings(listingsData)
 
-      setListings(listingsData)
-    })
+  useEffect(() => {
+    fetch(url).then( jsonify ).then( putListingsInState )
   }, [])
 
 
