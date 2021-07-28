@@ -17,11 +17,11 @@ export default function NewListing({ addNewListingToState }) {
         const dataToTransmit = {method, headers, body }
 
         fetch(url, dataToTransmit).then( jsonify ).then(newListing => {
-            addNewListingToState(newListing)
-        })
-    }
-
-    return (
+            addNewListingToState(newListing)    //         ^
+        })                                      //         | 
+    }                                           // this is the response
+                                                // from our back end, i.e. the
+    return (                                    // json-server
         <div style={{margin: "10px"}}>
             <form onSubmit={makeNewListing} >
                 <label htmlFor="description">
