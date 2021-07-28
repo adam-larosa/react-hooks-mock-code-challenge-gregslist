@@ -1,5 +1,5 @@
 import { useState } from 'react'
-const url = "http://localhost:3000/listings"
+import { url, jsonify } from '../tools/fetchData'
 
 
 export default function NewListing({ addNewListingToState }) {
@@ -9,19 +9,16 @@ export default function NewListing({ addNewListingToState }) {
 
     const makeNewListing = e => {
         e.preventDefault()
-        //do our fetch
 
         const method = 'POST'
         const headers = {"Content-Type": "application/json"}
         const body = JSON.stringify({ description, image, location })
 
-        const dataToTransmit = {method, headers,body }
+        const dataToTransmit = {method, headers, body }
 
-        fetch(url, dataToTransmit).then(r => r.json()).then(newListing => {
+        fetch(url, dataToTransmit).then( jsonify ).then(newListing => {
             addNewListingToState(newListing)
         })
-
-
     }
 
     return (

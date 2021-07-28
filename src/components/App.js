@@ -14,7 +14,6 @@ function App() {
   const putListingsInState = listingsData => setListings(listingsData)
 
   useEffect(() => {
-
     fetch(url).then( jsonify ).then( putListingsInState )
   }, [])
 
@@ -76,7 +75,7 @@ function App() {
         sendUserInputToApp={getUserInputFromSearch} />
 
       <NewListing addNewListingToState={addNewListingToState} />
-      
+
       <ListingsContainer listings={sortedListings()} 
         deleteListing={deleteListing} />
     </div>

@@ -4,7 +4,7 @@ import Search from "./Search";
 const SortActivator = ({ userWantsSort }) => {
   return (
     <div style={{margin: "10px"}}>
-      Sort by name? <input onChange={() => userWantsSort()}type="checkbox"/>
+      Sort by name? <input onChange={() => userWantsSort()} type="checkbox"/>
     </div>
   )
 }

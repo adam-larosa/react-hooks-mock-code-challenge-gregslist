@@ -15,7 +15,7 @@ function Search({ sendUserInputToApp }) {
         id="search"
         placeholder="search free stuff"
         value={userInput}
-        onChange={(e) => setUserInput(e.target.value)}
+        onChange={e => setUserInput(e.target.value)}
       />
       <button type="submit">🔍</button>
     </form>

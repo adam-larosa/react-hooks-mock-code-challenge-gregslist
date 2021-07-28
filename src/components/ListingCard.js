@@ -22,7 +22,10 @@ function ListingCard({ listing, deleteListing }) {
         )}
         <strong>{listing.description}</strong>
         <span> · {listing.location}</span>
-        <button onClick={() => deleteListing(listing.id)} className="emoji-button delete">🗑</button>
+        <button onClick={() => deleteListing(listing.id)} 
+          className="emoji-button delete">
+          🗑
+        </button>
       </div>
     </li>
   );
