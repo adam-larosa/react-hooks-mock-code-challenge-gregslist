@@ -1,4 +1,4 @@
-review @ https://youtu.be/mJyZiGsAAbI
+review @ https://youtu.be/LgGlY78r6F0
 
 # React Mock Code Challenge: gregslist
 
