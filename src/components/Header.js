@@ -3,7 +3,7 @@ import Search from "./Search";
 
 
 
-function Header({ formInput }) {
+function Header() {
   return (
     <header>
       <h1>
@@ -12,7 +12,7 @@ function Header({ formInput }) {
         </span>
         gregslist
       </h1>
-      <Search formInput={formInput} />
+      <Search />
     </header>
   );
 }
