@@ -3,7 +3,7 @@ import Search from "./Search";
 
 
 
-function Header({ justClickedSubmit }) {
+function Header() {
   return (
     <header>
       <h1>
@@ -12,7 +12,7 @@ function Header({ justClickedSubmit }) {
         </span>
         gregslist
       </h1>
-      <Search justClickedSubmit={justClickedSubmit} />
+      <Search />
     </header>
   );
 }
