@@ -3,7 +3,7 @@ import Search from "./Search";
 
 
 
-function Header({ submitSearch }) {
+function Header() {
   return (
     <header>
       <h1>
@@ -12,7 +12,7 @@ function Header({ submitSearch }) {
         </span>
         gregslist
       </h1>
-      <Search submitSearch={ submitSearch } />
+      <Search />
     </header>
   );
 }
