@@ -3,7 +3,7 @@ import Search from "./Search";
 
 
 
-function Header() {
+function Header({ toggleSearch }) {
   return (
     <header>
       <h1>
@@ -12,7 +12,7 @@ function Header() {
         </span>
         gregslist
       </h1>
-      <Search />
+      <Search toggleSearch={ toggleSearch }/>
     </header>
   );
 }
